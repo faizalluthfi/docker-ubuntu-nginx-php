@@ -28,4 +28,4 @@ RUN chown -R www-data:www-data /run/php /var/log/php-fpm
 
 EXPOSE 8080
 
-ENTRYPOINT /usr/bin/supervisord -u root -n]
+ENTRYPOINT /usr/bin/supervisord -u root -n
