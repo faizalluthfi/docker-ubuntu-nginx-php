@@ -23,6 +23,12 @@ COPY supervisord.conf /etc/supervisord.conf
 RUN cp /etc/nginx/nginx.conf /etc/nginx/nginx.conf.bak
 RUN sed 's/www-data/root/g' /etc/nginx/nginx.conf.bak > /etc/nginx/nginx.conf
 
+RUN cp /etc/php/7.4/fpm/pool.d/www.conf /etc/php/7.4/fpm/pool.d/www.conf.bak
+RUN sed 's/www-data/root/g' /etc/php/7.4/fpm/pool.d/www.conf.bak > /etc/php/7.4/fpm/pool.d/www.conf
+
+RUN cp /etc/php/7.4/fpm/pool.d/www.conf /etc/php/7.4/fpm/pool.d/www.conf.bak
+RUN sed 's/;clear_env = no/clear_env = no/g' /etc/php/7.4/fpm/pool.d/www.conf.bak > /etc/php/7.4/fpm/pool.d/www.conf
+
 RUN mkdir -p /var/log/php-fpm
 RUN chown -R www-data:www-data /run/php /var/log/php-fpm
 
